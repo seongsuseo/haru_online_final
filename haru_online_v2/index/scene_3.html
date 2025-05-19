@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>3번 테마 소개</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url("img/sbmain_1.jpeg") no-repeat center center;
+      background-size: cover;
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h2 {
+      margin-top: 40px;
+      color: white;
+      text-shadow: 1px 1px 2px black;
+    }
+
+    .theme-grid {
+      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1000px;
+      margin-top: auto;
+      margin-bottom: 160px;
+      gap: 12px;
+    }
+
+    .theme-button {
+      width: 160px;
+      height: 100px;
+      font-size: 15px;
+      font-weight: bold;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #333;
+      border: 1px solid #999;
+      text-align: center;
+      line-height: 1.4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      pointer-events: none;
+    }
+
+    #avatar {
+      position: absolute;
+      bottom: 30px;
+      right: 320px;
+      width: 260px;
+    }
+  </style>
+</head>
+<body>
+  <h2>AI 체험관 테마 소개</h2>
+
+  <div class="theme-grid" id="menu">
+    <div class="theme-button">1. 패스뷰 모의면접<br>(PassView AI Interview)</div>
+    <div class="theme-button">2. 감정 인식 AI<br>(Emotion AI)</div>
+    <div class="theme-button">3. AI 크리에이터<br>(AI Creator)</div>
+    <div class="theme-button">4. AI 창작 활동<br>(Creative AI)</div>
+    <div class="theme-button">5. 드론 택시<br>(Drone Taxi)</div>
+    <div class="theme-button">6. 스마트 팜<br>(Smart Farm)</div>
+    <div class="theme-button">7. 바이오 AI<br>(Bio AI)</div>
+    <div class="theme-button">8. 우주 개척<br>(Space Pioneer)</div>
+    <div class="theme-button">9. 메타 버스<br>(Metaverse)</div>
+    <div class="theme-button">10. 데이터탐정<br>(Data Detective)</div>
+    <div class="theme-button">11. IoT 스마트<br>(IoT Experience)</div>
+    <div class="theme-button">12. 로봇 자동화<br>(Robot Automation)</div>
+    <div class="theme-button">13. 게임 기획<br>(Game Designer)</div>
+    <div class="theme-button">14. VR 자아 탐험<br>(VR Self Discovery)</div>
+  </div>
+
+  <img id="avatar" src="img/haru_avatar.png" alt="하루 아바타">
+
+  <!-- 오디오 태그를 제거하고 JavaScript에서 생성 -->
+
+  <script>
+    // 전체 오디오 태그 제거
+    document.querySelectorAll('audio').forEach(audio => {
+      audio.pause();
+      audio.src = '';
+      audio.remove();
+    });
+
+    // 새로운 오디오 생성 및 재생
+    let audio = null;
+    let hasPlayed = false;
+    let isNavigating = false;
+
+    function createAndPlayAudio() {
+      if (hasPlayed || isNavigating) return;
+      
+      // 오디오 생성
+      audio = new Audio();
+      audio.src = 'audio/ko_center.mp3';
+      audio.preload = 'auto';
+      
+      // 시작 마커
+      hasPlayed = true;
+      
+      // 재생 완료 처리
+      audio.addEventListener
+('ended', function() {
+        if (!isNavigating) {
+          isNavigating = true;
+          cleanup();
+          window.location.href = "scene_4.html";
+        }
+      });
+      
+      // 에러 처리
+      audio.addEventListener
+('error', function() {
+        if (!isNavigating) {
+          isNavigating = true;
+          cleanup();
+          window.location.href = "scene_4.html";
+        }
+      });
+      
+      // 재생
+      audio.play().then(() => {
+        console.log('오디오 재생 시작');
+      }).catch(error => {
+        console.error('재생 실패:', error);
+        if (!isNavigating) {
+          isNavigating = true;
+          cleanup();
+          window.location.href = "scene_4.html";
+        }
+      });
+    }
+
+    function cleanup() {
+      if (audio) {
+        audio.pause();
+        audio.src = '';
+        audio = null;
+      }
+    }
+
+    // 페이지 로드 시 실행
+    window.addEventListener
+('DOMContentLoaded', () => {
+      // 약간의 지연 후 재생 시작
+      setTimeout(createAndPlayAudio, 100);
+      
+      // 메뉴 표시
+      setTimeout(() => {
+        document.getElementById("menu").style.display = "flex";
+      }, 8000);
+    });
+
+    // 페이지 이탈 시 정리
+    window.addEventListener
+('beforeunload', cleanup);
+    window.addEventListener
+('unload', cleanup);
+  </script>
+</body>
+</html>

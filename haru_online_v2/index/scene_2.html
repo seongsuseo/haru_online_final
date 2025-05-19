@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>2번 - AI 진로 체험관 안내</title>
+
+  <link rel="stylesheet" href="css/style.css"> 
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      background: url("img/main_1.jpeg") no-repeat center center;
+      background-size: cover;
+      font-family: 'Arial', sans-serif;
+    }
+
+    #avatar {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 380px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateX(-50%) scale(0.6); }
+      100% { opacity: 1; transform: translateX(-50%) scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <img id="avatar" src="img/haru_avatar.png" alt="AI 아바타 하루">
+
+  <audio id="introAudio" autoplay>
+    <source src="audio/ko_haru.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const audio = document.getElementById('introAudio');
+    audio.addEventListener('ended', () => {
+      setTimeout(() => {
+        window.location.href = "scene_3.html";  // 다음 씬으로 이동
+      }, 1500); // 1.5초 대기 후 이동
+    });
+          
+   </script>
+
+</body>
+</html>

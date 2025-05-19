@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AI 체험 시작</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: url("img/scene5_bg.png") no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    h2 {
+      font-size: 26px;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 3px black;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      margin: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .end-btn {
+      background-color: #e74c3c;
+    }
+
+    #avatar {
+      position: fixed;
+      bottom: 60px;
+      right: 320px;
+      width: 260px;
+      z-index: 10;
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 음성 -->
+  <audio autoplay>
+    <source src="audio/theme_5.mp3" type="audio/mp3" />
+  </audio>
+
+  <!-- 아바타 -->
+  <img id="avatar" src="img/haru_avatar.png" alt="하루 아바타" />
+
+  <!-- 안내 멘트 -->
+  <h2>지금부터 AI 체험을 시작하겠습니다.<br>아래 버튼을 눌러주세요.</h2>
+
+  <!-- 버튼 -->
+  <button class="btn" id="startBtn">체험 시작하기</button>
+  <script>
+    const theme = localStorage.getItem("selectedTheme") || "01";
+    const padded = theme.toString
+().padStart(2, '0');
+
+    document.getElementById("startBtn").onclick = () => {
+      location.href = `theme/theme_5-${padded}.html`;
+    };
+  </script>
+
+</body>
+</html>

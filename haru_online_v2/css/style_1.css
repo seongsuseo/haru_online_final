@@ -1,0 +1,33 @@
+body {
+    font-family: sans-serif;
+    padding: 20px;
+    margin: 0;
+    text-align: center;
+  }
+  
+  h2 {
+    margin-top: 60px;
+    font-size: 24px;
+  }
+  
+  p {
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .gpt-btn {
+    margin-top: 20px;
+    padding: 14px 28px;
+    font-size: 18px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 90%;
+    max-width: 320px;
+  }
+  
+  .gpt-btn:hover {
+    background-color: #357ab7;
+  }

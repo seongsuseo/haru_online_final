@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AI 코어 연결 중</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: 'Arial', sans-serif;
+      font-size: 24px;
+    }
+
+    .wave-effect {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 180px;
+      height: 180px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: rgba(0, 255, 255, 0.1);
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1.8);
+        opacity: 0;
+      }
+    }
+
+    .message {
+      position: absolute;
+      bottom: 80px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wave-effect"></div>
+  <div class="message" id="status-text">AI 코어에 연결 중입니다...</div>
+
+  <audio autoplay>
+    <source src="../audio/ko_core.mp3" type="audio/mpeg">
+  </audio>
+
+  <audio id="narration" autoplay>
+    <source src="../audio/scene0.mp3" type="audio/mp3">
+  </audio>
+  
+  <script>
+    const audio = document.getElementById('narration');
+    audio.addEventListener
+  ('ended', () => {
+      setTimeout(() => {
+        window.location.href = "scene_1.html";  // 다음 씬으로 이동
+      }, 1500); // 1.5초 대기 후 이동
+    });
+  </script>
+  
+  <script>
+    setTimeout(() => {
+      document.getElementById("status-text").textContent = "접속 완료되었습니다.";
+    }, 3000);
+
+    setTimeout(() => {
+      window.location.href = "scene_2.html";
+    }, 5500);
+  </script>
+
+</body>
+</html>

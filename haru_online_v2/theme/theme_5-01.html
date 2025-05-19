@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+
+  <title>패스뷰 체험 5-01</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: url("img/scene5_bg.png") no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-top: 60px;
+      text-shadow: 1px 1px 3px black;
+    }
+
+    p {
+      font-size: 18px;
+      text-shadow: 1px 1px 2px black;
+    }
+
+    #avatar {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      width: 260px;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+      margin: 10px;
+    }
+
+    .back-btn {
+      background-color: #333;
+    }
+
+    .end-btn {
+      background-color: #e74c3c;
+    }
+
+    .gpt-btn {
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .gpt-btn:hover {
+      background-color: #357ab7;
+    }
+
+    #userInput {
+      padding: 10px;
+      font-size: 16px;
+      width: 300px;
+      margin-top: 20px;
+      border-radius: 6px;
+      border: none;
+    }
+
+    #askBtn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    #haruReply {
+      margin-top: 20px;
+      font-size: 18px;
+      background-color: rgba(0,0,0,0.4);
+      padding: 10px 20px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🎵 음성 -->
+  <audio autoplay>
+    <source src="audio/theme_5-01.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- 🧍 아바타 이미지 -->
+  <img id="avatar" src="img/haru_avatar.png" alt="하루 아바타">
+
+  <!-- 🗣️ 안내 멘트 -->
+  <h2>지금부터 패스뷰 모의면접 AI 체험이 시작하겠습니다!</h2>
+  <p>생생한 체험을 느껴보세요</p>
+
+  <!-- ✍️ 사용자 입력 -->
+  <div>
+    <input id="userInput" placeholder="하루에게 질문해보세요">
+    <button id="askBtn">하루에게 묻기</button>
+  </div>
+
+  <!-- 💬 응답 출력 -->
+  <p id="haruReply">하루의 응답이 여기에 나타납니다.</p>
+
+  <!-- 🌐 외부 ChatGPT 체험 링크 -->
+  <div>
+    <button class="btn gpt-btn" onclick="window.open('https://chat.openai.com', '_blank')">💬 ChatGPT 체험 시작</button>
+  </div>
+
+  <!-- 🔙 종료 버튼 -->
+  <div>
+    <button class="btn back-btn" onclick="location.href='index/scene_4.html'">← 다른 체험 하러 가기</button>
+    <button class="btn end-btn" onclick="location.href='index/scene_6.html'">체험 종료</button>
+  </div>
+
+  <!-- 💡 JS 연동 (OpenAI API) -->
+  <script>
+    document.getElementById("askBtn").addEventListener("click", async () => {
+      const userMessage = document.getElementById("userInput").value;
+      const replyBox = document.getElementById("haruReply");
+      replyBox.innerText
+ = "답변을 기다리는 중...";
+
+      try {
+        const response = await fetch("https://api.openai.com/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer 여기에_API_키_입력"
+          },
+          body: JSON.stringify({
+            model: "gpt-3.5-turbo",
+            messages: [
+              { role: "system", content: "당신은 친절한 체험 안내자 하루입니다. 질문에 짧고 쉽게 답해주세요." },
+              { role: "user", content: userMessage }
+            ]
+          })
+        });
+
+        const data = await response.json();
+        replyBox.innerText
+ = data.choices[0].message.content
+;
+      } catch (error) {
+        replyBox.innerText
+ = "하루 연결 실패. 인터넷 또는 API 키 오류일 수 있습니다.";
+      }
+    });
+  </script>
+
+</body>
+</html>

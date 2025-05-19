@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url("img/main_1.jpeg");
+    background-size: cover; /* <-- 배경 꽉 차게 */
+    background-repeat: no-repeat;
+    background-position: center center; /* <-- 중앙 정렬 */
+  }

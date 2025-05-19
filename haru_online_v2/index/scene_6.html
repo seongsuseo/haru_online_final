@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AI 체험 종료</title>
+
+  <link rel="stylesheet" href="" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url("img/scene6_bg.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .end-text-box {
+      text-align: center;
+      color: #000;
+      font-size: 26px;
+      margin-bottom: 30px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 40px;
+    }
+
+    .action-button,
+    .exit-button {
+      padding: 20px 36px;
+      font-size: 20px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .action-button {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .action-button:hover {
+      background-color: #218838;
+    }
+
+    .exit-button {
+      background-color: #990000;
+      color: white;
+    }
+
+    .exit-button:hover {
+      background-color: #cc0000;
+    }
+
+    #avatar {
+      position: absolute;
+      bottom: 0;
+      right: 40px;
+      width: 220px;
+      z-index: 1;
+    }
+
+    /* 모바일 대응 */
+    @media (max-width: 768px) {
+      .end-text-box {
+        font-size: 20px;
+      }
+      .action-button, .exit-button {
+        font-size: 16px;
+        padding: 16px 24px;
+      }
+      #avatar {
+        width: 140px;
+        right: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <audio autoplay>
+    <source src="audio/ko_end.mp3" type="audio/mpeg" />
+  </audio>
+
+  <div class="end-text-box">
+    <div class="end-title">AI 체험이 종료되었습니다.</div>
+    <div class="end-sub">다른 테마를 체험하시겠습니까?</div>
+  </div>
+
+  <div class="btn-group">
+    <button class="action-button" onclick="location.href='scene_4.html'">다시 체험하기</button>
+    <button class="exit-button" onclick="location.href='scene_0.html'">종료</button>
+  </div>
+
+  <img id="avatar" src="img/haru_avatar.png" alt="하루 아바타" />
+
+</body>
+</html>

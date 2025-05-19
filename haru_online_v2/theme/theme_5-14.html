@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>VR 자아 탐험 체험 테마</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+ <style>
+   body {
+     margin: 0;
+     padding: 0;
+     font-family: 'Arial', sans-serif;
+     background: url("img/board_1.png") no-repeat center center fixed;
+     background-size: cover;
+     height: 100vh;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     text-align: center;
+     position: relative;
+   }
+
+   h2 {
+     font-size: 26px;
+     color: white;
+     text-shadow: 1px 1px 3px black;
+     margin-bottom: 20px;
+   }
+
+   .nav-buttons {
+     margin-top: 40px;
+   }
+
+   .btn {
+     padding: 12px 24px;
+     font-size: 16px;
+     margin: 0 10px;
+     border: none;
+     border-radius: 8px;
+     cursor: pointer;
+     color: white;
+   }
+
+   .back-btn {
+     background-color: #444;
+   }
+
+   .end-btn {
+     background-color: #d9534f;
+   }
+
+   #avatar {
+     position: absolute;
+     bottom: 30px;
+     right: 320px;
+     width: 260px;
+   }
+
+   audio {
+     display: none;
+   }
+ </style>
+</head>
+<body>
+
+ <!-- 🎧 해당 테마의 음성 -->
+ <audio id="themeVoice" autoplay>
+   <source src="audio/theme_5-14.mp3" type="audio/mpeg">
+   브라우저가 오디오를 지원하지 않습니다.
+ </audio>
+
+ <h2>지금부터 VR 자아 탐험 체험을 시작하겠습니다.</h2>
+ <p>가상 현실 속 나를 찾아보세요.</p>
+
+ <!-- 🎭 아바타 이미지 -->
+ <img id="avatar" src="img/haru_avatar.png" alt="하루 아바타">
+
+ <div class="nav-buttons">
+   <!-- ✅ 4번으로 이동 -->
+   <button class="btn back-btn" onclick="location.href='index/scene_4.html'">← 다른 체험 하러 가기</button>
+   <!-- ✅ 6번으로 이동 -->
+   <button class="btn end-btn" onclick="location.href='index/scene_6.html'">체험 종료</button> 
+ </div>
+
+</body>
+</html>

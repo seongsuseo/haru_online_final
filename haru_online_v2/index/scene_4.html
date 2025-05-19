@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AI 체험관 - 테마 선택</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: url("img/scene4_bg.jpeg") no-repeat center center;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+
+    .theme-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 900px;
+      gap: 16px;
+    }
+
+    .theme-button {
+      background-color: #f2f2f2;
+      color: black;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 18px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 200px;
+    }
+
+    .theme-button:hover {
+      background-color: #ddd;
+    }
+    
+    .theme-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1000px;
+      margin: 40px auto;
+      gap: 16px;
+    }
+
+    .theme-button {
+      width: 180px;
+      height: 100px;
+      font-size: 16px;
+      border-radius: 10px;
+      background-color: #eef;
+      border: 1px solid #888;
+      text-align: center;
+      line-height: 1.5;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    #avatar {
+      position: absolute;
+      right: 320px;
+      bottom: 30px;
+      width: 260px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>원하시는 체험관을 선택하세요</h2>
+
+  <div class="theme-grid">
+    <div class="theme-button" onclick="goToTheme(1)">
+      1. 패스뷰 모의면접<br>(PassView Interview)
+    </div>
+    <div class="theme-button" onclick="goToTheme(2)">2. 감정 인식 AI<br>(Emotion AI)</div>
+    <div class="theme-button" onclick="goToTheme(3)">3. AI 크리에이터<br>(AI Creator)</div>
+    <div class="theme-button" onclick="goToTheme(4)">4. AI 창작 활동<br>(Creative AI)</div>
+    <div class="theme-button" onclick="goToTheme(5)">5. 드론택시<br>(Drone Taxi)</div>
+    <div class="theme-button" onclick="goToTheme(6)">6. 스마트팜<br>(Smart Farm)</div>
+    <div class="theme-button" onclick="goToTheme(7)">7. 바이오 AI<br>(Bio AI)</div>
+    <div class="theme-button" onclick="goToTheme(8)">8. 우주개척<br>(Space Pioneer)</div>
+    <div class="theme-button" onclick="goToTheme(9)">9. 메타버스<br>(Metaverse)</div>
+    <div class="theme-button" onclick="goToTheme(10)">10. 데이터탐정<br>(Data Detective)</div>
+    <div class="theme-button" onclick="goToTheme(11)">11. IoT 체험<br>(IoT Experience)</div>
+    <div class="theme-button" onclick="goToTheme(12)">12. 로봇자동화<br>(Robot Automation)</div>
+    <div class="theme-button" onclick="goToTheme(13)">13. 게임기획<br>(Game Planning)</div>
+    <div class="theme-button" onclick="goToTheme(14)">14. VR 자아탐험<br>(VR Self Exploration)</div>
+  </div>
+
+  <div>
+    <button class="btn gpt-btn" onclick="window.open('https://chat.openai.com', '_blank')">💬 ChatGPT 체험 시작</button>
+  </div>
+
+  <img id="avatar" src="img/haru_avatar.png" alt="하루 아바타" />
+
+  <audio autoplay preload="auto">
+    <source src="audio/ko_theme_intro.mp3" type="audio/mp3" />
+  </audio>
+
+  <script>
+    function goToTheme(num) {
+      localStorage.setItem("selectedTheme", num);
+      location.href = "scene_5.html";
+    }
+  </script>
+</body>
+</html>

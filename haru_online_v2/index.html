@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>하루 AI 체험관 - 시작</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('img/main_screen.jpg'); /* 이미지 확장자 확인 필요 */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #avatar {
+      position: absolute;
+      bottom: 0;
+      left: 30px;
+      width: 220px;
+    }
+
+    .start-button {
+      position: absolute;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #333;
+      color: #fff;
+      font-size: 20px;
+      padding: 12px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .start-button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 아바타 이미지 -->
+  <img id="avatar" src="../img/haru-avatar.png" alt="AI 안내 아바타 하루">
+
+  <!-- 시작하기 버튼 -->
+  <a class="start-button" href="scene_1.html">시작하기</a>
+
+  <!-- 오디오 자동 재생 -->
+  <audio autoplay>
+    <source src="../audio/ko_intro.mp3" type="audio/mpeg">
+    브라우저가 오디오 태그를 지원하지 않습니다.
+  </audio>
+
+  <audio id="narration" autoplay>
+    <source src="../audio/scene0.mp3" type="audio/mp3">
+  </audio>
+  
+  <script>
+    const audio = document.getElementById('narration');
+    audio.addEventListener
+  ('ended', () => {
+      setTimeout(() => {
+        window.location.href = "scene_1.html";  // 다음 씬으로 이동
+      }, 1500); // 1.5초 대기 후 이동
+    });
+  </script>
+  
+</body>
+</html>
